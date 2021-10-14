@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Guess The Word</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="game.css">
+</head>
+<body>
+<h4 id="player1_name"></h4><span id="player1_score"></span>
+<h4 id="player2_name"></h4><span id="player2_score"></span>
+<div class="container">
+	<center>
+		<h2 style="color: white;">Guess The Word!</h2>
+		<h3 id="player_question"></h3>
+		<h3 id="player_answer"></h3>
+		<div id="output" class="col-lg-6"></div>
+		<br>
+		<br>
+		<label>Send your word down 👇</label></label><b style="color: red"> Try putting word which has 5 or more alphabet
+		</b>
+		</label>
+		<br>
+		<input type="text" id="word" class="form-control" placeholder="Word">
+		<br>
+		<button onclick="send()" class="btn btn-info" style="width: 30%;">Send</button>
+	</center>
+</div>
+
+<script src="game_page.js">
+	p1_name=localStorage.getItem("player1_name");
+p1_score=0;
+p2_name=localStorage.getItem("player2_name");
+p2_score=0;
+
+document.getElementById("player1_name").innerHTML=p1_name+":";
+document.getElementById("player1_score").innerHTML=p1_score;
+document.getElementById("player2_name").innerHTML=p2_name+":";
+document.getElementById("player2_score").innerHTML=p2_score;
+document.getElementById("player_question").innerHTML="Question turn:"+p1_name;
+document.getElementById("player_Answer").innerHTML="Answer turn:"+p2_name;
+
+function send(){
+    getWord=document.getElementById("word").value;
+    Word=getWord.toUpperCase();
+}
+</script>
+</body>
+</html>
